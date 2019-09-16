@@ -1,8 +1,21 @@
 ---
 layout: default
-title: Trisha Tan
+pagination:
+  enabled: true
 ---
-<div class="blurb">
-	<h1>Hi there, I'm Trisha Tan!</h1>
-	<p>I love cats and coffee. <a href="/about">Read more about my life...</a></p>
-</div><!-- /.blurb -->
+<!-- The main content area -->
+<div class="posts">
+  <div class="grid-xlarge">
+    <div class="posts__container" itemscope itemtype="http://schema.org/Blog" data-columns>
+
+      {% for post in paginator.posts %}
+
+        <!-- The tag below includes the markup for each post - partials/post-card.html -->
+        {% include post-card.html %}
+
+      {% endfor %}
+    </div>
+  </div>
+
+  {% include pagination.html %}
+</div>
